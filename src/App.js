@@ -10,7 +10,6 @@ function App() {
   useEffect(() => {
     (async () => {
       const response = await axios.get('https://reqres.in/api/users');
-      console.log(response)
       setUsers(response.data.data);
     })();
   }, []);
@@ -37,7 +36,7 @@ function App() {
       {
         suggestions &&
         suggestions.map((suggestion, i) => 
-        <div key={ i }>{ suggestion.email }</div>
+        <div key={ i } className="col-md-12 justify-content-md-center suggestion" >{ suggestion.email }</div>
         )
       }
     </div>
