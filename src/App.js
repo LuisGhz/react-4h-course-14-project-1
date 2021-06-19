@@ -19,8 +19,8 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <input type="text" 
+    <div className="app container">
+      <input type="text" className="col-md-12"
       onChange={ e => onChangeHandler(e.target.value) }
       value={ text }
       />
