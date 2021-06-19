@@ -42,6 +42,10 @@ function App() {
           setSuggestions([])
         }, 150)
       }}
+
+      onFocus={ () => {
+        onChangeHandler(text)
+      }}
       />
       {
         suggestions &&
