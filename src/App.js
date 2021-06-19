@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   const [users, setUsers] = useState([]);
   const [text, setText] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -15,6 +16,15 @@ function App() {
   }, []);
 
   const onChangeHandler = text => {
+    let matches = [];
+    if (text.length > 0) {
+      matches = users.filter(user => {
+        const regex = new RegExp(`${text}`, 'gi');
+        return user.email.match(regex);
+      })
+    }
+    
+    setSuggestions(matches)
     setText(text);
   }
 
