@@ -23,7 +23,7 @@ function App() {
         return user.email.match(regex);
       })
     }
-    
+
     setSuggestions(matches)
     setText(text);
   }
@@ -34,6 +34,12 @@ function App() {
       onChange={ e => onChangeHandler(e.target.value) }
       value={ text }
       />
+      {
+        suggestions &&
+        suggestions.map((suggestion, i) => 
+        <div key={ i }>{ suggestion.email }</div>
+        )
+      }
     </div>
   );
 }
