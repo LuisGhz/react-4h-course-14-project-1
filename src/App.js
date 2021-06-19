@@ -37,6 +37,11 @@ function App() {
       <input type="text" className="col-md-12"
       onChange={ e => onChangeHandler(e.target.value) }
       value={ text }
+      onBlur={ () => {
+        setTimeout(() => {
+          setSuggestions([])
+        }, 150)
+      }}
       />
       {
         suggestions &&
