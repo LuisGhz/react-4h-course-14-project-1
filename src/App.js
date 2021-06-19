@@ -27,6 +27,11 @@ function App() {
     setText(text);
   }
 
+  const onSelectSuggestion = text => {
+    setText(text);
+    setSuggestions([]);
+  }
+
   return (
     <div className="app container">
       <input type="text" className="col-md-12"
@@ -36,7 +41,7 @@ function App() {
       {
         suggestions &&
         suggestions.map((suggestion, i) => 
-        <div key={ i } className="col-md-12 justify-content-md-center suggestion" >{ suggestion.email }</div>
+        <div key={ i } onClick={ () => onSelectSuggestion(suggestion.email) } className="col-md-12 justify-content-md-center suggestion" >{ suggestion.email }</div>
         )
       }
     </div>
